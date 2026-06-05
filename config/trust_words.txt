@@ -1,0 +1,48 @@
+# Trust words approved for use in title tags.
+# These are used when a page has no confirmed CTA — they fill the same "hook" role
+# without making a specific promise about services offered.
+#
+# Format: one word or phrase per line. Lines starting with # are comments.
+# Add/remove words here — no code changes needed.
+#
+# LEGAL ADVERTISING NOTE: Several state bars restrict specific terms.
+# See categories below before activating any word.
+
+# ── SAFE — generic descriptors, non-verifiable, broadly accepted ──────────────
+# Low risk in all states. These describe positioning, not services.
+trusted
+experienced
+dedicated
+skilled
+local
+responsive
+compassionate
+thorough
+knowledgeable
+proven
+reliable
+
+# ── SAFE FOR CRIMINAL / DUI DEFENSE ONLY ─────────────────────────────────────
+# "aggressive" is appropriate for defense attorneys but not estate planning.
+# The AI is instructed to match trust words to practice area.
+aggressive
+
+# ── CONDITIONAL — only activate if the firm can substantiate it ───────────────
+# Uncomment only after verifying. Do NOT activate by default.
+# award-winning       (requires an actual, verifiable award)
+# board-certified     (requires actual board certification in the specialty)
+# highly-rated        (requires verifiable ratings, e.g. Google/Avvo 4.8+)
+
+# ── RESTRICTED — do not activate. Documented here for reference only ──────────
+# These are restricted or prohibited in multiple states under bar advertising rules.
+#
+# expert              RESTRICTED: FL, TX, NJ, NY, CA + most ABA-model states.
+#                     Prohibited unless attorney holds board certification in specialty.
+# specialist          RESTRICTED: Same rules as "expert" — most states require certification.
+# best                RESTRICTED: Superlative claim — prohibited in NY, NJ, most states.
+# top / top-rated     RESTRICTED: Unverifiable superlative — NJ, NY specifically prohibit.
+# #1                  RESTRICTED: Comparative claim — prohibited most states.
+# leading             RESTRICTED: Superlative. Avoid.
+# most experienced    RESTRICTED: Comparative superlative. Avoid.
+# certified           RESTRICTED: Only if holding actual certification in that specialty.
+# premier             RESTRICTED: Superlative. Avoid.

@@ -1,0 +1,12 @@
+.env
+reports/
+reports/*.csv
+client_secret.json
+token*.json
+__pycache__/
+*.pyc
+.venv/
+venv/
+.checkpoint.json
+.DS_Store
+.claude/

@@ -1,0 +1,8 @@
+# Hard overrides — Ahrefs project name (exact, case-insensitive), Strategist name
+# Format: AhrefsProjectName,StrategistName
+# These bypass all fuzzy matching and sheet lookups.
+
+Diamond Legal, PC,Christian
+Mdcrimlawyer,Jayrald
+Vacrimlawyers,Jayrald
+Dc-dui-lawyer,Jayrald

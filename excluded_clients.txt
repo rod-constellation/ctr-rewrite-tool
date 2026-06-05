@@ -1,0 +1,8 @@
+# Excluded Ahrefs projects — one name per line (case-insensitive).
+# These are test domains, internal sites, or non-client projects.
+# Add new exclusions here — no code changes needed.
+
+# Non-clients / test domains
+Immigration-hero
+Mejores Abogados
+Constellation

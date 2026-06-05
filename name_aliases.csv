@@ -1,0 +1,9 @@
+# Maps Ahrefs project name → clean client name used in the Strategist Google Sheet.
+# Format: AhrefsProjectName, Google Sheet Client Name
+# Used to handle multi-website clients and name mismatches.
+# Case-insensitive matching.
+
+Scrofanolaw, Scrofano Law PC
+Dc-dui-lawyer, Scrofano Law PC - DC DUI
+Mdcrimlawyer, Scrofano Law PC - MD CRIM
+Vacrimlawyers, Scrofano Law PC - VA CRIM
