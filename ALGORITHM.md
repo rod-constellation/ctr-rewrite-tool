@@ -32,6 +32,11 @@ Only pages with **transactional/commercial intent** proceed to the rewrite step.
 **Hard excluded (informational/blog) if:**
 - URL contains: `/blog/`, `/news/`, `/article`, `/resources/`, `/faq/`, `/guide/`, etc.
 
+**Hard excluded (non-editable file types) — filtered in Step 2:**
+- URL ends in: `.pdf`, `.doc`, `.docx`, `.pptx`, `.ppt`, `.xls`, `.xlsx`, `.odt`, `.odp`, `.ods`, `.rtf`, `.txt`
+- Title/meta can't be updated via CMS for these — the file itself would need to be edited
+- Configurable via `EXCLUDED_URL_EXTENSIONS` in `config.py`
+
 **Homepages** (URL with no meaningful path) are separated into a `* Needs Client Approval *` tab — title tag changes to the homepage require explicit client sign-off before implementation.
 
 ---

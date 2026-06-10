@@ -108,8 +108,9 @@ GSC_SECONDARY_QUERIES_COUNT   = 8   # how many secondary queries to keep per pag
 GSC_SECONDARY_MIN_IMPRESSIONS = 30  # ignore very low-impression queries
 
 # Service page detection
-SERVICE_QUERY_KEYWORDS = [...]   # hire-intent signals in the query
-BLOG_URL_PATTERNS      = [...]   # URL patterns that indicate informational content
+SERVICE_QUERY_KEYWORDS   = [...]   # hire-intent signals in the query
+BLOG_URL_PATTERNS        = [...]   # URL patterns that indicate informational content
+EXCLUDED_URL_EXTENSIONS  = [...]   # file types filtered before classification (.pdf, .docx, etc.)
 ```
 
 ---

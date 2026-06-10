@@ -103,6 +103,9 @@ CTR_THRESHOLD_RATIO = 0.70  # 0.80 = more pages flagged, 0.60 = fewer
 GSC_LOOKBACK_DAYS   = 90    # change to 60 or 30 for shorter data window
 GSC_SECONDARY_QUERIES_COUNT   = 8   # secondary queries kept per page for tail
 GSC_SECONDARY_MIN_IMPRESSIONS = 30  # min impressions for a secondary query to qualify
+
+# File types excluded before classification (can't update title/meta via CMS)
+EXCLUDED_URL_EXTENSIONS = [".pdf", ".doc", ".docx", ".pptx", ...]  # edit to add/remove
 ```
 
 ---
