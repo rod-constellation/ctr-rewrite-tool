@@ -45,6 +45,30 @@ def _url_matches(page_url: str, serp_url: str) -> bool:
     return _normalize_url(page_url) == _normalize_url(serp_url)
 
 
+def _check_redirect(url: str) -> tuple:
+    """
+    HEAD request to detect meaningful redirects (different path/domain) or 404s.
+    Ignores cosmetic redirects: http→https, www±, trailing slash.
+    Returns (is_dead, final_url_or_reason).
+    On network error: returns (False, url) — don't drop on uncertainty.
+    """
+    try:
+        resp = requests.head(
+            url,
+            allow_redirects=True,
+            timeout=config.FETCH_TIMEOUT,
+            headers={"User-Agent": "Mozilla/5.0 (compatible; CTRTool/1.0)"},
+        )
+        if resp.status_code == 404:
+            return True, "404 Not Found"
+        final_url = resp.url
+        if _normalize_url(url) != _normalize_url(final_url):
+            return True, final_url
+        return False, final_url
+    except Exception:
+        return False, url  # network error — keep it, let SERP handle it
+
+
 # ── DataForSEO helpers ─────────────────────────────────────────────────────────
 
 def _serp_call(query: str, depth: int) -> list:
@@ -143,6 +167,32 @@ def run(pages: list) -> list:
     print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
 
     if not pages:
+        return pages
+
+    # ── Pre-pass: redirect / 404 check ────────────────────────────────────────
+    print(f"  Pre-pass — checking {len(pages)} URLs for redirects / 404s")
+    live_pages = []
+    dropped = []
+
+    for page in pages:
+        is_dead, destination = _check_redirect(page.page_url)
+        if is_dead:
+            dropped.append((page, destination))
+            print(f"    ✂️  {page.page_url[:65]}")
+            print(f"         → {destination[:65]}")
+        else:
+            live_pages.append(page)
+
+    if dropped:
+        print(f"\n  ⚠️  {len(dropped)} page(s) dropped (redirect/404 — not actionable by VA):")
+        for page, dest in dropped:
+            print(f"    {page.client_name}: {page.page_url.split('/')[-2] or '/'} → {dest[:60]}")
+    else:
+        print(f"  ✅ All {len(pages)} URLs live — no redirects or 404s detected.\n")
+
+    pages = live_pages
+    if not pages:
+        print("  No live pages remain after redirect check.")
         return pages
 
     # ── Pass 1: Top-query SERP (covers positions 1–SERP_FETCH_DEPTH) ──────────
