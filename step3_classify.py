@@ -166,6 +166,9 @@ def run(pages: list) -> list:
         f"  Informational/blog pages skipped:   {info_skipped} "
         f"(no hire intent — title rewrites won't drive leads)"
     )
+    print(
+        f"  Note: PDFs/docs filtered in Step 2 (file extensions — not editable via CMS)"
+    )
 
     if flagged:
         by_strategist = {}

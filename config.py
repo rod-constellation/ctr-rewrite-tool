@@ -85,6 +85,13 @@ BLOG_URL_PATTERNS = [
     "/post/", "/press/", "/media/", "/newsletter",
 ]
 
+# File extensions that can't have title/meta updated via CMS — skip entirely.
+# PDFs, Word docs, PowerPoints etc. require editing the file itself, not a page template.
+EXCLUDED_URL_EXTENSIONS = [
+    ".pdf", ".doc", ".docx", ".pptx", ".ppt",
+    ".xls", ".xlsx", ".odt", ".odp", ".ods", ".rtf", ".txt",
+]
+
 # ── CTR classification ─────────────────────────────────────────────────────────
 
 # Flag a page if actual_CTR <= CTR_THRESHOLD_RATIO × expected_CTR.

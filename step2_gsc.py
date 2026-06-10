@@ -214,6 +214,7 @@ def _filter_pages(pages: list, query_leader: dict) -> tuple:
         p for p in pages
         if p["impressions"] >= config.GSC_MIN_IMPRESSIONS
         and config.GSC_MIN_POSITION <= p["position"] <= config.GSC_MAX_POSITION
+        and not any(p["page"].lower().endswith(ext) for ext in config.EXCLUDED_URL_EXTENSIONS)
     ]
 
     kept = []
